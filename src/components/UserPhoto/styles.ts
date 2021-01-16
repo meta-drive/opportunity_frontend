@@ -11,7 +11,8 @@ export const Img = styled.img`
 `;
 
 export const SocialLinks = styled.div`
+  margin-top: 15px; 
   a {
-    margin: 5px;
+    margin: 0 5px;
   }
 `;

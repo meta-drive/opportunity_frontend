@@ -10,7 +10,7 @@ const PersonalInfo: React.FC = () => {
   return (
     <Container>
       <Title>
-        Personal Info
+        Informações Pessoal
       </Title>
       <ContentInfo>
         <p><b>Nome:</b> {user.username}</p>
@@ -18,7 +18,6 @@ const PersonalInfo: React.FC = () => {
         <p><b>Sexo:</b> {user.genre}</p>
         <p><b>Estado Civil:</b> {user.marital_status}</p>
         <p><b>Telefone:</b> {user.phone}</p>
-        <p><b>Resumo Profissional:</b> {user.professional_resume}</p>
       </ContentInfo>
     </Container>
   );

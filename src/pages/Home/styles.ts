@@ -18,6 +18,9 @@ export const PersonalInfoContainer = styled.div`
 export const LeftPersonalContainer = styled.div`
   width: 250px;
   margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const RightPersonalContainer = styled.div`

@@ -5,6 +5,7 @@ import { MainContainer, PersonalInfoContainer, EmblemsContainer, GoalsContainer,
 import PersonalInfo from '../../components/PersonalInfo';
 import ExtraInfo from '../../components/ExtraInfo';
 import UserPhoto from '../../components/UserPhoto';
+import AboutUser from '../../components/AboutUser';
 
 const Home: React.FC = () => {
   return (
@@ -12,7 +13,7 @@ const Home: React.FC = () => {
       <PersonalInfoContainer>
         <LeftPersonalContainer>
           <UserPhoto />
-          <div>teste2</div>
+          <AboutUser />
         </LeftPersonalContainer>
         <RightPersonalContainer>
           <PersonalInfo />
