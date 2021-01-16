@@ -1,5 +1,7 @@
 import React, { createContext, useState , useCallback, useContext } from 'react';
 
+import { toast } from 'react-toastify';
+
 import api from '../services/api';
 
 interface User {
@@ -66,7 +68,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       setData({ token, user });
       return true;
     } catch (err) {
-      alert(err);
+      toast.error("Erro ao realizar login");
       return false;
     }
   }, []);

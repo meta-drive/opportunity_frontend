@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import { useAuth } from  '../../context/AuthContext';
 
-import { Container, Img } from './styles';
+import { Container, Img, SocialLinks } from './styles';
 import api from '../../services/api';
 
 
@@ -20,6 +20,7 @@ const UserPhoto: React.FC = () => {
     // })
     // .catch(err => {})
     // console.log(user);
+    console.log(user);
   }, []);
 
   return (
@@ -30,6 +31,11 @@ const UserPhoto: React.FC = () => {
           : <Img src={defaultImage} alt="Foto não encontrada"/> }
         
       </Container>
+      <SocialLinks>
+          {user.facebook != null ? <a target="_blank" href={user.facebook}>Facebook</a> : ''}
+          {user.linkedin != null ? <a target="_blank" href={user.linkedin}>Linkedin</a> : ''}
+          {user.instagram != null ? <a target="_blank" href={user.instagram}>Instagram</a> : ''}
+      </SocialLinks>
     </>
   );
 }

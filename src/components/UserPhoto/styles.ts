@@ -9,3 +9,9 @@ export const Img = styled.img`
   height: 100%;
   border-radius: 8px;
 `;
+
+export const SocialLinks = styled.div`
+  a {
+    margin: 5px;
+  }
+`;
