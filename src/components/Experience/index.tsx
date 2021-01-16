@@ -26,7 +26,6 @@ const Experience: React.FC = () => {
     api.get(`/users/${user.id}/experiences`, {headers: {Authorization: `Bearer ${token}`}})
     .then((expriences) => {
       setExperiences(expriences.data)
-      console.log(expriences.data);
     })
     .catch(err => {})
 

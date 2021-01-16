@@ -7,7 +7,7 @@ import Experience from '../Experience';
 
 import { Container, Card } from './styles';
 
-const ComplementaryInfo: React.FC = () => {
+const ExtraInfo: React.FC = () => {
   const { user } = useAuth();
 
   useEffect(() => {
@@ -23,4 +23,4 @@ const ComplementaryInfo: React.FC = () => {
   );
 }
 
-export default ComplementaryInfo;
+export default ExtraInfo;

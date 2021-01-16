@@ -16,8 +16,7 @@ export const PersonalInfoContainer = styled.div`
 `;
 
 export const LeftPersonalContainer = styled.div`
-  max-width: 300px;
-  border: 1px solid #ccc;
+  width: 250px;
   margin-right: 20px;
 `;
 

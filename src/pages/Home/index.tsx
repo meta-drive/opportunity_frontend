@@ -3,19 +3,20 @@ import React from 'react';
 import { MainContainer, PersonalInfoContainer, EmblemsContainer, GoalsContainer, LeftPersonalContainer, 
          RightPersonalContainer } from './styles';
 import PersonalInfo from '../../components/PersonalInfo';
-import ComplementaryInfo from '../../components/ComplementaryInfo';
+import ExtraInfo from '../../components/ExtraInfo';
+import UserPhoto from '../../components/UserPhoto';
 
 const Home: React.FC = () => {
   return (
     <MainContainer>
       <PersonalInfoContainer>
         <LeftPersonalContainer>
-          <div>borda temporaria</div>
+          <UserPhoto />
           <div>teste2</div>
         </LeftPersonalContainer>
         <RightPersonalContainer>
           <PersonalInfo />
-          <ComplementaryInfo />
+          <ExtraInfo />
         </RightPersonalContainer>
       </PersonalInfoContainer>
       <EmblemsContainer>meio</EmblemsContainer>

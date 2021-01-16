@@ -17,5 +17,5 @@ export const Card = styled.div`
   padding: 15px 15px;
   margin: 20px;
   border-radius: 8px;
-  max-width: 320px;
+  max-width: 250px;
 `;
