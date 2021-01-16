@@ -1,9 +1,10 @@
 import React from 'react';
+import Routes from './routes/index';
 
-function App() {
-  return (
-    <h1></h1>
-  );
-}
+const App: React.FC = () => (
+  <>
+    <Routes />
+  </>
+);
 
 export default App;
