@@ -2,9 +2,27 @@ import React, { createContext, useState , useCallback, useContext } from 'react'
 
 import api from '../services/api';
 
+interface User {
+  id: Number,
+  username: string,
+  birth_date: string,
+  description: string,
+  email: string,
+  facebook?: string,
+  genre: string,
+  goals?: string,
+  instagram?: string,
+  linkedin?: string,
+  marital_status: string,
+  phone: string,
+  photo?: string,
+  professional_resume?: string,
+  url?: string,
+}
+
 interface AuthState {
   token: string;
-  user: object;
+  user: User;
 }
 
 interface SignInCredentials {
@@ -13,9 +31,10 @@ interface SignInCredentials {
 }
 
 interface AuthContextData {
-  user: object;
+  user: User;
   signIn(credentials: SignInCredentials): Promise<boolean>;
   signOut(): void;
+  token: String;
 }
 
 export const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -60,7 +79,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
+    <AuthContext.Provider value={{ user: data.user, signIn, signOut, token: data.token }}>
       {children}
     </AuthContext.Provider>
   );
