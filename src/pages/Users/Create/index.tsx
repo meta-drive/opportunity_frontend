@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import ReactDatePicker from 'react-datepicker';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -22,11 +22,14 @@ interface User {
 
 const CreateUser: React.FC = () => {
   const { register, control, handleSubmit } = useForm();
+  const history = useHistory();
 
   const handleSignup: SubmitHandler<User> = async (data) => {
     try {
       const response = await api.post('users', data);
-      console.log(response);
+      
+      alert('Cadastro realizado com sucesso');
+      history.push('/login');
     } catch (err) {
       alert(err);
     }

@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Switch} from 'react-router-dom';
+import Route from './Route';
 
 import Landing from '../pages/Landing/index';
 import Home from '../pages/Home/index';
@@ -9,10 +10,12 @@ import CreateUser from '../pages/Users/Create/index';
 
 const Routes: React.FC = () => (
   <BrowserRouter>
-    <Route path="/" exact   component={Landing} />
-    <Route path="/homepage" component={Home} />
-    <Route path="/login"    component={Login} />
-    <Route path="/cadastro" component={CreateUser} />
+    <Switch>
+      <Route path="/" exact   component={Landing} />
+      <Route path="/login"    component={Login} />
+      <Route path="/cadastro" component={CreateUser} />
+      <Route path="/homepage" component={Home} isPrivate />
+    </Switch>
   </BrowserRouter>
 );
 

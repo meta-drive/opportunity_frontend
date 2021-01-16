@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
 
-import { AuthContext } from '../../context/AutContext';
+import { useAuth } from '../../context/AuthContext';
 
 import { Form, FormContainer } from './styles';
 
@@ -14,7 +14,7 @@ interface FormFields {
 const Login: React.FC = () => {
   const { register, handleSubmit } = useForm();
   const history = useHistory();
-  const { signIn, user } = useContext(AuthContext);
+  const { signIn } = useAuth();
 
   const handleLogin: SubmitHandler<FormFields> = async (credentials) => {
     if (await signIn(credentials))

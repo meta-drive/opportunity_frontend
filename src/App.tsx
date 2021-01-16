@@ -3,7 +3,7 @@ import Routes from './routes/index';
 
 import GlobalStyle from './styles/global';
 
-import { AuthProvider } from './context/AutContext';
+import { AuthProvider } from './context/AuthContext';
 
 const App: React.FC = () => (
   <AuthProvider>
