@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+
+import { AuthContext } from '../../context/AutContext';
 
 import { Form } from './styles';
 
@@ -10,9 +13,12 @@ interface FormFields {
 
 const Login: React.FC = () => {
   const { register, handleSubmit } = useForm();
+  const history = useHistory();
+  const { signIn, user } = useContext(AuthContext);
 
-  const handleLogin: SubmitHandler<FormFields> = (data) => {
-    console.log(data);
+  const handleLogin: SubmitHandler<FormFields> = async (credentials) => {
+    if (await signIn(credentials))
+      history.push('home');
   }
 
   return (
