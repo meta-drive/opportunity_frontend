@@ -40,7 +40,6 @@ export const AuthProvider: React.FC = ({ children }) => {
       });
 
       const { token, user} = response.data;
-      console.log(user);
 
       localStorage.setItem('@opportunity:token', token.token);
       localStorage.setItem('@opportunity:user', JSON.stringify(user));

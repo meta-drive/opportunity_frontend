@@ -7,4 +7,9 @@ export default createGlobalStyle`
     outline: 0;
     box-sizing: border-box;
   }
+
+  body {
+    font-family: sans-serif;
+    color: #333334;
+  }
 `;

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { AuthContext } from '../../context/AutContext';
 
-import { Form } from './styles';
+import { Form, FormContainer } from './styles';
 
 interface FormFields {
   email: string;
@@ -22,7 +22,7 @@ const Login: React.FC = () => {
   }
 
   return (
-    <>
+    <FormContainer>
       <h1>Entrar</h1>
       <Form onSubmit={handleSubmit(handleLogin)}>
         <input ref={register} name="email" placeholder="Digite seu e-mail" type="email" />
@@ -30,7 +30,9 @@ const Login: React.FC = () => {
 
         <button type='submit'>Entrar</button>
       </Form>
-    </>
+
+      <Link to="/cadastro">Cadastre-se</Link>
+    </FormContainer>
   );
 }
 
