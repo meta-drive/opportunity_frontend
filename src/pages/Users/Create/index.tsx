@@ -1,9 +1,13 @@
 import React from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import ReactDatePicker from 'react-datepicker';
+import { Link } from 'react-router-dom';
+
 import 'react-datepicker/dist/react-datepicker.css';
 
 import { Form } from './styles';
+
+import api from '../../../services/api';
 
 interface User {
   username: string;
@@ -19,8 +23,13 @@ interface User {
 const CreateUser: React.FC = () => {
   const { register, control, handleSubmit } = useForm();
 
-  const handleSignup: SubmitHandler<User> = (data) => {
-    console.log(data);
+  const handleSignup: SubmitHandler<User> = async (data) => {
+    try {
+      const response = await api.post('users', data);
+      console.log(response);
+    } catch (err) {
+      alert(err);
+    }
   }
 
   return (
@@ -77,6 +86,7 @@ const CreateUser: React.FC = () => {
 
         <button type="submit">Cadastrar</button>
       </Form>
+      <Link to="/login">Voltar para o login</Link>
     </>
   );
 }
