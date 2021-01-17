@@ -24,14 +24,42 @@ export const Title = styled.h2`
 
 export const ContentInfo = styled.div`
   display: flex;
-  flew-direction: row;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   width: 100%;
   text-align: center;
+  margin-top: 20px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    span {
+      margin-top: 15px;
+    }
+  }
 `;
 
 export const Img = styled.img`
   width: 40%;
+`;
+
+export const ControlsButtons = styled.div`
+  margin: 30px 0;
+  text-align: center;
+
+  button {
+    border: none;
+    background-color: transparent;
+    margin: 0 10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
 `;

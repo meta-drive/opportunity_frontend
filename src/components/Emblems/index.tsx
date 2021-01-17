@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 import { useAuth } from  '../../context/AuthContext';
 
-import { Container, ContentInfo, Title, Img } from './styles';
+import { Container, ContentInfo, Title, Img, ControlsButtons } from './styles';
 
 import api from '../../services/api';
 
@@ -23,13 +24,12 @@ const Emblems: React.FC = () => {
   const [on, setOn] = useState<boolean>(true);
   const [emblems, setEmblems] = useState<EmblemInterface[]>([]);
   const [emblemsArray, setEmblemsArray] = useState<EmblemInterface[]>([]);
+  const [firstEmblemIndex, setFirstEmblemIndex] = useState<number>(0);
 
   useEffect(() => {
     api.get(`/emblems`, {headers: {Authorization: `Bearer ${token}`}})
     .then((emblems) => {
-
       setEmblems(emblems.data)
-      // console.log(emblems);
     })
     .catch(err => {})
 
@@ -44,45 +44,68 @@ const Emblems: React.FC = () => {
       }
       return emblem;
     })
-
-    console.log(emblemMapped);
     setEmblemsArray(emblemMapped);
   }, [emblems])
 
   function nextEmblems () {
-    const lastActive = getLastEmblem();
-    let totalAlterado = 0;
+    if (firstEmblemIndex + 6 > emblems.length) {
+      return false;
+    }
+
     const emblemMapped = emblems.map( (emblem, index) => {
-      if (emblem.id > lastActive && totalAlterado <= 6) {
+      if (index >= (firstEmblemIndex + 6) && index < (firstEmblemIndex + 12)) {
         emblem.on = true;
-        totalAlterado++;
       }else {
         emblem.on = false;
       }
       return emblem;
     })
-    console.log(emblemMapped);
+
+    setFirstEmblemIndex(firstEmblemIndex + 6);
     setEmblemsArray(emblemMapped);
   }
 
-  function getLastEmblem () {
-    const actives = emblemsArray.filter(emblem => emblem.on == true);
-    return actives[actives.length - 1].id;
+  function previousEmblems () {
+    console.log(firstEmblemIndex - 6);
+    if (firstEmblemIndex - 6 < 0) {
+      return false;
+    }
+
+    const emblemMapped = emblems.map( (emblem, index) => {
+      if (index < firstEmblemIndex && index >= (firstEmblemIndex - 6)) {
+        emblem.on = true;
+      }else {
+        emblem.on = false;
+      }
+      return emblem;
+    })
+
+    setFirstEmblemIndex(firstEmblemIndex - 6);
+    setEmblemsArray(emblemMapped);
   }
 
   return (
     <>
-
     <Container>
       <Title>Emblemas</Title>
       <ContentInfo>
       {emblemsArray.map(emblem => (
-          emblem.on && <div key={emblem.id}><Img src={emblem.url}/></div>
+          emblem.on && <div key={emblem.id}>
+                        <Img src={emblem.url}/>
+                        <span>{emblem.score}</span>
+                      </div>
         ))}
       </ContentInfo>
-      <button onClick={() => nextEmblems()}>mais</button>
+      <ControlsButtons>
+        <button onClick={() => previousEmblems()}>
+          <FaAngleLeft size={20}/>
+        </button>
+        <button onClick={() => nextEmblems()}>
+          <FaAngleRight size={20}/>
+        </button>
+      </ControlsButtons>
+
     </Container>
-    
     </>
   );
 }
