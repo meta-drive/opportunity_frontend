@@ -1,16 +1,27 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { shade } from 'polished';
 
-export const FormContainer = styled.div`
-  width: 480px;
-  max-width: 80vw;
-  padding: 2rem;
-  margin: 2rem auto;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px;
-`;
-
-export const Form = styled.form`
+export const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+  justify-content: center;
+  height: 100vh;
+`;
+
+export const ActionButton = styled(Link)`
+  margin: 0.2rem auto;
+  background-color: #723915;
+  padding: 0.7rem;
+  color: #ffffff;
+  text-align: center;
+  width: 240px;
+  max-width: 80%;
+  text-decoration: none;
+  border-radius: 10px; 
+
+  &:hover {
+    background-color: ${shade(0.2, '#723915')}
+  }
+`;

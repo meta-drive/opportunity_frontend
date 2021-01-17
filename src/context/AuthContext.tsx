@@ -66,7 +66,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       setData({ token, user });
       return true;
     } catch (err) {
-      alert(err);
+      alert(err.response.data.message);
       return false;
     }
   }, []);
