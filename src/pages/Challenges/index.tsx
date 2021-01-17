@@ -4,13 +4,36 @@ import { MainContainer, ContainerCards, ContainerVacancies, Title } from './styl
 import { Card } from '../../styles/global';
 import api from '../../services/api';
 
+import image from '../../images/Background-com-roboCCR.svg';
+
+interface QuestionInterface {
+  id: number,
+  title: string,
+  description: string,
+}
+
+interface CompanyInterface {
+  id: number,
+  occupation_area: string,
+  company_name: string,
+}
+interface ChallengeInterface {
+  id: number,
+  company_id: number,
+  title: string,
+  description: string,
+  questions: QuestionInterface[],
+  company: CompanyInterface,
+}
+
 const Challenges: React.FC = () => {
 
-  // const [vacancies, setVacancies] = useState<VacancyInterface[]>();
+  const [challenges, setChallenges] = useState<ChallengeInterface[]>();
 
   useEffect(() => {
     api.get(`/challenges`)
     .then((challenges) => {
+      setChallenges(challenges.data)
      console.log(challenges);
     })
     .catch(err => {})
@@ -22,15 +45,17 @@ const Challenges: React.FC = () => {
         <Title>Vagas</Title>
         <input className="search"  type="text" />
         <ContainerCards>
-        {/* {vacancies?.map(vacancy => (
-          <Card key={vacancy.id}>
-            <div className="title">{vacancy.occupation.name} - {vacancy.occupation.occupation_area}</div>
-            <div className="img"></div>
+        {challenges?.map(challenge => (
+          <Card key={challenge.id}>
+            <div className="title">{challenge.title}</div>
+            <div className="img">
+              <img src={image}/>
+            </div>
             <div className="description">
-              {vacancy.description}
+              {challenge.description}
             </div>
           </Card>
-        ))} */}
+        ))}
         </ContainerCards>
       </ContainerVacancies>
     </MainContainer>

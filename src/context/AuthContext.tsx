@@ -19,6 +19,7 @@ interface User {
   phone: string,
   photo?: string,
   professional_resume?: string,
+  is_pcd: boolean,
   url?: string,
   is_profile_completed: boolean,
   is_specific_challenges_completed: boolean,

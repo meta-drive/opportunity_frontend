@@ -13,6 +13,18 @@ export const Container = styled.div`
 export const ContainerPhoto = styled.div`
   margin-top:10px;
   position: relative;
+
+  .level {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    right: -5px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    z-index: 99;
+  }
 `;
 
 export const Img = styled.img`
@@ -35,19 +47,18 @@ export const SocialLinks = styled.div`
 `;
 
 export const Level = styled.div`
-  border: 1px solid #723915;
   position: absolute;
-  min-width: 30%;
-  min-height: 30%;
+  width: 30%;
+  height: 30%;
   top: -25px;
   right: -5px;
   margin: 0;
   border-radius: 10px;
-  background-color: #E8E6E6;
+  background-color: transparent;
   padding: 5px 15px;
   z-index: 99;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px; 
+
+  img {
+    border: 1px solid red;
+  }
 `;

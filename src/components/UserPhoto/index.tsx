@@ -8,6 +8,12 @@ import facebookIcon from '../../assets/icons/FacebookCCR.svg';
 import instagramIcon from '../../assets/icons/InstagramCCR.svg';
 import LinkedinIcon from '../../assets/icons/LinkedinCCR.svg';
 
+import level1 from '../../assets/icons/1CCR.svg';
+import level2 from '../../assets/icons/2CCR.svg';
+import level3 from '../../assets/icons/3CCR.svg';
+import level4 from '../../assets/icons/4CCR.svg';
+import level5 from '../../assets/icons/5CCR.svg';
+
 const UserPhoto: React.FC = () => {
 
   const { user, token } = useAuth();
@@ -17,7 +23,9 @@ const UserPhoto: React.FC = () => {
     <>
       <Container>
         <ContainerPhoto>
-        <Level> <b>1</b> </Level>
+        {/* <Level> */}
+          <img className="level" src={level1}/>
+        {/* </Level> */}
         {user.photo != null 
           ? <Img src={user.url} alt="Foto"/> 
           : <Img src={defaultImage} alt="Foto não encontrada"/> }

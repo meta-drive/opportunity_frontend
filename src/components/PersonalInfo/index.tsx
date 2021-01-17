@@ -2,9 +2,12 @@ import React, {useState, useEffect} from 'react';
 
 import { useAuth } from  '../../context/AuthContext';
 
-import { Container, ContentInfo, Title } from './styles';
+import { Container, ContentInfo, Title, IsPcdIMG } from './styles';
 
 import api from '../../services/api';
+import { objectValues } from 'react-toastify/dist/utils';
+
+import pcdCCR from '../../assets/icons/pcdCCR.svg';
 
 interface InterestInterface {
   id: number,
@@ -38,17 +41,38 @@ interface ExperienceInterface {
   occupation: string,
 }
 
+interface Address {
+  id: number,
+  cep: string,
+  city: string,
+  complement: string,
+  description: string,
+  neighborhood: string,
+  number: string,
+  uf: string,
+}
+
 const PersonalInfo: React.FC = () => {
   const { user, token } = useAuth();
   const [interests, setInterests] = useState<InterestInterface[]>([]);
   const [academics, setAcademics] = useState<AcademicInterface[]>([]);
   const [languages, setLanguages] = useState<LanguageInterface[]>([]);
   const [experiences, setExperiences] = useState<ExperienceInterface[]>([]);
+  const [address, setAddress] = useState<Address | undefined>(undefined);
 
   useEffect(() => {
     api.get(`/users/${user.id}/interests`, {headers: {Authorization: `Bearer ${token}`}})
     .then((interests) => {
       setInterests(interests.data)
+    })
+    .catch(err => {})
+
+    api.get(`/users/${user.id}/addresses`, {headers: {Authorization: `Bearer ${token}`}})
+    .then((address) => {
+      if(address.data.length > 0) {
+        setAddress(address.data[0])
+      }
+
     })
     .catch(err => {})
 
@@ -76,7 +100,7 @@ const PersonalInfo: React.FC = () => {
     <>
     <Container>
       <Title>
-        Informações Pessoal
+        Informações Pessoal { user.is_pcd ? <IsPcdIMG src={pcdCCR} /> : ''}
       </Title>
       <ContentInfo>
         <p><b>Nome:</b> {user.username}</p>
@@ -84,6 +108,20 @@ const PersonalInfo: React.FC = () => {
         <p><b>Sexo:</b> {user.genre}</p>
         <p><b>Estado Civil:</b> {user.marital_status}</p>
         <p><b>Telefone:</b> {user.phone}</p>
+
+       {address != undefined && (
+        <>
+          <br/>
+          <h3>Endereço:</h3>
+          <p><b>CEP:</b> {address.cep}</p>
+          <p><b>Cidade:</b> {address.city}</p>
+          <p><b>Descrição:</b> {address.description}</p>
+          <p><b>Número:</b> {address.number}</p>
+          <p><b>Cidade:</b> {address.city}</p>
+          <p><b>UF:</b> {address.uf}</p>
+        </>
+        )}
+       
       </ContentInfo>
     </Container>
     
