@@ -3,10 +3,6 @@ import { useAuth } from  '../../context/AuthContext';
 
 import { Container, Content } from './styles';
 
-// interface AboutUserInterface {
-//   className: string,
-//   modalRef: string,
-// }
 interface ModalInterface {
   on: boolean,
   closeModal: CallableFunction,
