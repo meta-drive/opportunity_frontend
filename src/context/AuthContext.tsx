@@ -20,6 +20,10 @@ interface User {
   photo?: string,
   professional_resume?: string,
   url?: string,
+  is_profile_completed: boolean,
+  is_specific_challenges_completed: boolean,
+  is_interest_filled: boolean,
+  is_general_challenges_completed: boolean,
 }
 
 interface AuthState {
