@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import { MainContainer, PersonalInfoContainer, EmblemsContainer, GoalsContainer, LeftPersonalContainer, 
          RightPersonalContainer } from './styles';
@@ -8,6 +8,7 @@ import UserPhoto from '../../components/UserPhoto';
 import AboutUser from '../../components/AboutUser';
 
 const Home: React.FC = () => {
+
   return (
     <MainContainer>
       <PersonalInfoContainer>

@@ -16,9 +16,16 @@ const ExtraInfo: React.FC = () => {
 
   return (
     <Container>
-      <Card><Interest /></Card>
-      <Card><Academic /></Card>
-      <Card><Experience /></Card>
+      <Card>
+        <Interest />
+      </Card>
+      <Card>
+        <Academic />
+      </Card>
+      <Card>
+        <Experience />
+      </Card>
+
     </Container>
   );
 }

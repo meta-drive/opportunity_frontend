@@ -31,7 +31,7 @@ const Interest: React.FC = () => {
   return (
     <> 
       <InterestContainer>
-      <h3>Resumo Profissional </h3>
+      <h3>Resumo Profissional</h3>
         <div>
           <p>{user.professional_resume}</p>
         </div>
