@@ -1,27 +1,67 @@
 import styled from 'styled-components';
 
 export const TopNavbar = styled.nav`
-  background-color: #B88F73;
+  background-color: #333333;
+  color: #222223;
   position: sticky;
   width: 100%;
   top: 0;
-  overflow: hidden;
   display: flex;
-  justify-content: start;
-  padding: 1.25rem;
-  color: #222223;
+  align-items: flex-start;
   z-index: 1000;
 
-  a + a {
-    margin-left: 2rem;
+  div {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex: 1;
+
+    a {
+      text-decoration: none;
+      color: #eeeeff;
+      padding: 1.25rem;
+    }
+
+    a:hover, a.active {
+      background-color: #B88F73;
+    }
+
+    a:last-of-type {
+      margin-left: auto;
+    }
   }
 
-  a {
-    text-decoration: none;
-    color: #222223;
+  svg {
+    display: none;
+    color: #eeeeff;
+    margin: 1.25rem;
+    cursor: pointer;
   }
 
-  a:last-of-type {
-    margin-left: auto;
+  @media screen and (max-width: 720px) {
+    div {
+      flex-direction: column;
+      justify-content: stretch;
+
+      a {
+        width: 100%;
+      }
+
+      &:not(.open) a.active {
+        background-color: #333333;
+      }
+
+      a:not(.active) {
+        display: none;
+      }
+
+      &.open a {
+        display:block;
+      }
+    }
+
+    svg {
+      display: block;
+    }
   }
 `;
