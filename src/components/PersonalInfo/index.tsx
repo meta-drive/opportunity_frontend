@@ -107,7 +107,7 @@ const PersonalInfo: React.FC = () => {
 
 
     <Container>
-      <Title>Idiomas:</Title>
+      <Title>Idiomas</Title>
       <ContentInfo>
         {languages.map(language => (
         <div key={language.id}>
@@ -117,7 +117,7 @@ const PersonalInfo: React.FC = () => {
     </Container>
 
     <Container>
-      <Title>Formação academica:</Title>
+      <Title>Formação academica</Title>
       <ContentInfo>
       {academics.map(academic => (
         <div key={academic.id}>
@@ -131,7 +131,7 @@ const PersonalInfo: React.FC = () => {
     </Container>
 
     <Container>
-      <Title>Experiência Profissional:</Title>
+      <Title>Experiência Profissional</Title>
       <ContentInfo>
       {experiences.map(experience => (
         <div key={experience.id}>
