@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 
 import { Form, FormContainer } from '../../styles/global';
-import { LoginContainer, ActionButton } from './styles';
+import { LoginContainer, ActionButton, ImgRobo } from './styles';
 
 interface FormFields {
   email: string;
@@ -24,8 +24,9 @@ const Login: React.FC = () => {
 
   return (
     <LoginContainer>
+      <ImgRobo />
       <FormContainer>
-        <h2>Entrar</h2>
+        <h2>Bem-vindo(a)</h2>
         <Form onSubmit={handleSubmit(handleLogin)}>
           <input ref={register} name="email" placeholder="Digite seu e-mail" type="email" />
           <input ref={register} name="password" placeholder="Digite sua senha" type="password" />

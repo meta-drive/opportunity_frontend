@@ -25,6 +25,10 @@ export const FormContainer = styled.div`
   background-color: #ffffff;
   box-shadow: 0 0 10px;
   border-radius: 60px;
+  background-color: #723915;
+  opacity: 90%;
+  color: #ffffff;
+  z-index: 1;
 
   h2 {
     margin-bottom: 1rem;
@@ -39,22 +43,24 @@ export const Form = styled.form`
   input, textarea {
     margin-bottom: 1rem;
     padding: 0.7rem;
-    border: 1px solid #723915;
+    border: 0;
     border-radius: 7px;
   }
 
   button.btn-primary {
-    background-color: #723915;
+    background-color: #EB7231;
     align-self: flex-end;
+    margin-top: 2rem;
     color: #ffffff;
     width: 30%;
     min-width: 140px;
     padding: 0.5rem;
     border: 0;
     border-radius: 2rem;
+    transition: background-color 0.2s ease;
 
     &:hover {
-      background-color: ${shade(0.2, '#723915')};
+      background-color: ${shade(0.2, '#EB7231')};
       cursor: pointer;
     }
   }
