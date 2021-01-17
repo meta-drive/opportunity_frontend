@@ -1,13 +1,17 @@
 import React from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import ReactDatePicker from 'react-datepicker';
 import { Link, useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
+import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import ptBR from 'date-fns/locale/pt-BR';
 
-import { Form } from './styles';
+import { Form, FormContainer } from '../../../styles/global';
 
 import api from '../../../services/api';
+
+registerLocale('pt-BR', ptBR);
 
 interface User {
   username: string;
@@ -26,17 +30,17 @@ const CreateUser: React.FC = () => {
 
   const handleSignup: SubmitHandler<User> = async (data) => {
     try {
-      const response = await api.post('users', data);
+      await api.post('users', data);
       
-      alert('Cadastro realizado com sucesso');
+      toast.success('Cadastro realizado com sucesso!');
       history.push('/login');
     } catch (err) {
-      alert(err);
+      toast.error(err.response.data.message);
     }
   }
 
   return (
-    <>
+    <FormContainer>
       <h1>Cadastre-se</h1>
       <Form onSubmit={handleSubmit(handleSignup)}>
         <input
@@ -48,7 +52,7 @@ const CreateUser: React.FC = () => {
           name="email"
           type="email"
           ref={register}
-          placeholder="Digite o seuinput e-mail"
+          placeholder="Digite o seu e-mail"
         />
         <Controller
           name="birth_date"
@@ -57,6 +61,9 @@ const CreateUser: React.FC = () => {
             <ReactDatePicker 
               selected={value}
               onChange={onChange}
+              locale='pt-BR'
+              dateFormat='dd/MM/yyyy'
+              placeholderText='Data de Nascimento'
             />
           )}
         />
@@ -87,10 +94,10 @@ const CreateUser: React.FC = () => {
           placeholder="Digite sua senha"
         />
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit" className="btn-primary">Cadastrar</button>
       </Form>
       <Link to="/login">Voltar para o login</Link>
-    </>
+    </FormContainer>
   );
 }
 
