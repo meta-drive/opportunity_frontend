@@ -8,8 +8,11 @@ import Home from '../pages/Home/index';
 import Login from '../pages/Sessions/login'
 import CreateUser from '../pages/Users/Create/index';
 
+import Navbar from '../components/Navbar';
+
 const Routes: React.FC = () => (
   <BrowserRouter>
+    <Navbar />
     <Switch>
       <Route path="/" exact   component={Landing} />
       <Route path="/login"    component={Login} />

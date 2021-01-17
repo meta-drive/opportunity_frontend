@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../context/AuthContext';
 
