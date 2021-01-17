@@ -5,6 +5,7 @@ import mapaObjetivos from '../../assets/images/mapa-objetivos.svg';
 
 interface BalloonInterface {
   alignSelf: string,
+  isCompleted: boolean,
 }
 
 export const Container = styled.div`
@@ -68,11 +69,15 @@ export const ContentInfo = styled.div`
 
 export const Balloon = styled.div<BalloonInterface>`
   align-self: ${props => props.alignSelf};
+  border: none;
+  text-shadow: 2px 3px 1px #000;
+  padding: 5px;
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 1px solid #723915;
-  background-color: white;
+  background-color: #723915;
+  opacity: ${props => ( props.isCompleted ? 1 : 0.5)};
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
