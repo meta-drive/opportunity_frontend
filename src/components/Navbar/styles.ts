@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const TopNavbar = styled.nav`
-  background-color: #333333;
+  background-color: #B88F73;
   color: #222223;
   position: sticky;
   width: 100%;
@@ -23,7 +23,7 @@ export const TopNavbar = styled.nav`
     }
 
     a:hover, a.active {
-      background-color: #B88F73;
+      background-color: #333333;
     }
 
     a:last-of-type {
