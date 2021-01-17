@@ -12,21 +12,34 @@ export const Container = styled.div`
 export const Title = styled.h2`
   border: 1px solid #723915;
   position: absolute;
-  min-width: 60%;
+  width: 50%;
   top: -15px;
-  left: -5px;
+  left: 25%;
   margin: 0;
   border-radius: 10px;
   background-color: #E8E6E6;
   padding: 5px 15px;
+  text-align: center;
 `;
 
 export const ContentInfo = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
 
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
-  p {
-    padding: 5px; 
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    span {
+      margin-top: 15px;
+    }
   }
 `;
