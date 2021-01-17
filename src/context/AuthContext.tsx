@@ -66,6 +66,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       localStorage.setItem('@opportunity:user', JSON.stringify(user));
 
       setData({ token, user });
+      toast.success(response.data.message);
       return true;
     } catch (err) {
       toast.error(err.response.data.message);
