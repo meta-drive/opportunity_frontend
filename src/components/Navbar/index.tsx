@@ -22,6 +22,7 @@ const Navbar: React.FC = () => {
       <div className={menuOpen ? 'open' : ''}>
         <NavLink to="/" exact activeClassName="active">Início</NavLink>
         <NavLink to="/desafios">Desafios</NavLink>
+        <NavLink to="/vagas">Vagas</NavLink>
 
         {!!user && (
           <NavLink to="/perfil">Perfil</NavLink>
