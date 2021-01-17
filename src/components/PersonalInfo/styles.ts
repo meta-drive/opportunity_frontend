@@ -19,6 +19,10 @@ export const Title = styled.h2`
   border-radius: 10px;
   background-color: #E8E6E6;
   padding: 5px 15px;
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
 `;
 
 export const ContentInfo = styled.div`
@@ -29,4 +33,10 @@ export const ContentInfo = styled.div`
   p {
     padding: 5px; 
   }
+`;
+
+export const IsPcdIMG = styled.img`
+  width: 20px;
+  float: right;
+  margin-left: 10px;
 `;

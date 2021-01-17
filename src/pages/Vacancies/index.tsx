@@ -4,6 +4,8 @@ import { MainContainer, ContainerCards, ContainerVacancies, Title } from './styl
 import { Card } from '../../styles/global';
 import api from '../../services/api';
 
+import image from '../../images/Background-com-roboCCR.svg';
+
 interface Company {
   id: number,
   company_name: string,
@@ -54,7 +56,9 @@ const Vacancies: React.FC = () => {
         {vacancies?.map(vacancy => (
           <Card key={vacancy.id}>
             <div className="title">{vacancy.occupation.name} - {vacancy.occupation.occupation_area}</div>
-            <div className="img"></div>
+            <div className="img">
+              <img src={image}/>
+            </div>
             <div className="description">
               {vacancy.description}
             </div>
