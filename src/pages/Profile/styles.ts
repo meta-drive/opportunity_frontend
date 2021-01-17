@@ -1,10 +1,17 @@
 import styled from 'styled-components';
 
+import background from '../../images/background.svg';
+
 export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  background: url(${background}) no-repeat center;
+  background-size: cover;
 `;
 
 export const ProfileContainer = styled.div`

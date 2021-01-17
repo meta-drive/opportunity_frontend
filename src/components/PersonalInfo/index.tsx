@@ -141,6 +141,7 @@ const PersonalInfo: React.FC = () => {
           <p><b>Data Fim: </b>{experience.final_date}</p>
           <p><b>Modalidade: </b>{experience.modality}</p>
           <p><b>Atividades: </b>{experience.activities}</p>
+          <br/>
         </div>))}
       </ContentInfo>
     </Container>
