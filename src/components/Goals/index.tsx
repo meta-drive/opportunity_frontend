@@ -3,7 +3,7 @@ import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 import { useAuth } from  '../../context/AuthContext';
 
-import { Container, ContentInfo, Title } from './styles';
+import { Container, ContentInfo, Title, Balloon } from './styles';
 
 import api from '../../services/api';
 
@@ -26,6 +26,11 @@ const Goals: React.FC = () => {
     <Container>
       <Title>Objetivos</Title>
       <ContentInfo>
+        <Balloon alignSelf='flex-start'>teste 1</Balloon>
+        <Balloon alignSelf='flex-end'>teste 2</Balloon>
+        <Balloon alignSelf='flex-start'>teste 3</Balloon>
+        <Balloon alignSelf='flex-end'>teste 4</Balloon>
+        <Balloon alignSelf='center'>teste 5</Balloon>
       </ContentInfo>
     </Container>
     </>
