@@ -29,7 +29,8 @@ const Navbar: React.FC = () => {
           <NavLink to="/">Início</NavLink>
         )}
 
-        <NavLink to="/desafios">Desafios</NavLink>
+        <NavLink to="/desafios" activeClassName="active">Desafios</NavLink>
+        <NavLink to="/vagas">Vagas</NavLink>
 
         {!!user ? (
           <Link to="" onClick={handleLogout}>Sair</Link>

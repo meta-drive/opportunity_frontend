@@ -67,3 +67,29 @@ export const Form = styled.form`
     }
   }
 `
+
+export const Card = styled.div`
+
+  border: 1px solid #723915;
+  background-color: white;
+  width: 280px;
+  margin: 20px 5px;
+
+  .title {
+    border-bottom: 1px solid #723915;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img {
+    height: 200px;
+  }
+
+  .description {
+    border-top: 1px solid #723915;
+    height: 80px;
+    padding: 5px;
+  }
+`;
