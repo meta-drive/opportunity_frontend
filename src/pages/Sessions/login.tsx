@@ -1,10 +1,11 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../context/AuthContext';
 
-import { Form, FormContainer } from './styles';
+import { Form, FormContainer } from '../../styles/global';
+import { LoginContainer, ActionButton, ImgRobo } from './styles';
 
 interface FormFields {
   email: string;
@@ -22,17 +23,19 @@ const Login: React.FC = () => {
   }
 
   return (
-    <FormContainer>
-      <h1>Entrar</h1>
-      <Form onSubmit={handleSubmit(handleLogin)}>
-        <input ref={register} name="email" placeholder="Digite seu e-mail" type="email" />
-        <input ref={register} name="password" placeholder="Digite sua senha" type="password" />
+    <LoginContainer>
+      <ImgRobo />
+      <FormContainer>
+        <h1>BEM-VINDO</h1>
+        <Form onSubmit={handleSubmit(handleLogin)}>
+          <input ref={register} name="email" placeholder="Digite seu e-mail" type="email" />
+          <input ref={register} name="password" placeholder="Digite sua senha" type="password" />
 
-        <button type='submit'>Entrar</button>
-      </Form>
-
-      <Link to="/cadastro">Cadastre-se</Link>
-    </FormContainer>
+          <button type="submit" className="btn-primary">Entrar</button>
+        </Form>
+      </FormContainer>
+      <ActionButton to="/cadastro">Cadastre-se</ActionButton>
+    </LoginContainer>
   );
 }
 

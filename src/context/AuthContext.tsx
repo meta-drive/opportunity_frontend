@@ -70,9 +70,10 @@ export const AuthProvider: React.FC = ({ children }) => {
       localStorage.setItem('@opportunity:user', JSON.stringify(user));
 
       setData({ token: token.token, user });
+      toast.success(response.data.message);
       return true;
     } catch (err) {
-      toast.error("Erro ao realizar login");
+      toast.error(err.response.data.message);
       return false;
     }
   }, []);
