@@ -26,7 +26,7 @@ const Login: React.FC = () => {
     <LoginContainer>
       <ImgRobo />
       <FormContainer>
-        <h2>Bem-vindo(a)</h2>
+        <h1>BEM-VINDO</h1>
         <Form onSubmit={handleSubmit(handleLogin)}>
           <input ref={register} name="email" placeholder="Digite seu e-mail" type="email" />
           <input ref={register} name="password" placeholder="Digite sua senha" type="password" />

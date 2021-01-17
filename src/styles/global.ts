@@ -30,8 +30,10 @@ export const FormContainer = styled.div`
   color: #ffffff;
   z-index: 1;
 
-  h2 {
+  h1 {
     margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Londrina Solid', cursive;
   }
 `;
 

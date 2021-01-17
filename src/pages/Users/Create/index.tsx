@@ -1,8 +1,9 @@
 import React from 'react';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-import ReactDatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
+import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import ptBR from 'date-fns/locale/pt-BR';
 
@@ -31,16 +32,16 @@ const CreateUser: React.FC = () => {
     try {
       await api.post('users', data);
       
-      alert('Cadastro realizado com sucesso');
+      toast.success('Cadastro realizado com sucesso!');
       history.push('/login');
     } catch (err) {
-      alert(err.response.data.message);
+      toast.error(err.response.data.message);
     }
   }
 
   return (
     <FormContainer>
-      <h2>Cadastre-se</h2>
+      <h1>Cadastre-se</h1>
       <Form onSubmit={handleSubmit(handleSignup)}>
         <input
           name="username"
