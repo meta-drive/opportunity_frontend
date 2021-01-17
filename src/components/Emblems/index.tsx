@@ -66,7 +66,6 @@ const Emblems: React.FC = () => {
   }
 
   function previousEmblems () {
-    console.log(firstEmblemIndex - 6);
     if (firstEmblemIndex - 6 < 0) {
       return false;
     }

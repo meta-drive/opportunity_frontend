@@ -18,7 +18,7 @@ const Login: React.FC = () => {
 
   const handleLogin: SubmitHandler<FormFields> = async (credentials) => {
     if (await signIn(credentials))
-      history.push('homepage');
+      history.push('perfil');
   }
 
   return (
