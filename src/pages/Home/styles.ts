@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { shade } from 'polished';
 import background from './assets/background.svg';
+import banner from './assets/banner.png';
 
 export const HomeContainer = styled.div`
   background: url(${background}) no-repeat center fixed;
@@ -42,9 +43,25 @@ export const HomeContainer = styled.div`
 
     .banner {
       width: 100%;
-      background-color: #ffffff;
+      background: url(${banner}) no-repeat;
+      background-size: cover;
+      height: 10rem;
       border-radius: 7px;
       box-shadow: 0 0 0.4rem;
+      position: relative;
+      padding: 2rem;
+
+      p {
+        color: #ffffff;
+        width: 80%;
+        font-family: 'Londrina Solid', cursive;
+        font-size: 120%;
+        position: absolute;
+        text-align: right;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
 
     .occupation-container {
@@ -92,5 +109,10 @@ export const HomeContainer = styled.div`
     .occupation-container {
       flex-direction: column;
     }
+
+    .banner {
+      background-size: cover !important;
+      height: 20rem !important;
+    } 
   }
 `;
