@@ -6,8 +6,9 @@ import PersonalInfo from '../../components/PersonalInfo';
 import UserPhoto from '../../components/UserPhoto';
 import AboutUser from '../../components/AboutUser';
 import Emblems from '../../components/Emblems';
+import Goals from '../../components/Goals';
 
-const Home: React.FC = () => {
+const Profile: React.FC = () => {
 
   return (
     <MainContainer>
@@ -22,10 +23,10 @@ const Home: React.FC = () => {
           </RightPersonalContainer>
         </PersonalInfoContainer>
         <Emblems />
-        <GoalsContainer>baixo</GoalsContainer>
+        <Goals />
       </ProfileContainer>
     </MainContainer>
   );
 }
 
-export default Home;
+export default Profile;
