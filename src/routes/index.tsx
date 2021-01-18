@@ -6,6 +6,7 @@ import Landing from '../pages/Landing/index';
 import Profile from '../pages/Profile/index';
 import Vacancies from '../pages/Vacancies/index';
 import Challenges from '../pages/Challenges/index';
+import Challenge from '../pages/Challenge/index';
 
 import Login from '../pages/Sessions/login'
 import CreateUser from '../pages/Users/Create/index';
@@ -22,6 +23,7 @@ const Routes: React.FC = () => (
       <Route path="/perfil"   component={Profile} isPrivate />
       <Route path="/vagas"   component={Vacancies} isPrivate />
       <Route path="/desafios" component={Challenges} isPrivate />
+      <Route path="/desafio/:id" component={Challenge} isPrivate />
     </Switch>
   </BrowserRouter>
 );

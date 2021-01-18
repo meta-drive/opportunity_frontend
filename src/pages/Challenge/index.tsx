@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { RouteComponentProps, withRouter } from 'react-router';
 
 import { MainContainer, ContainerCards, ContainerVacancies, Title } from './styles';
 import { Card } from '../../styles/global';
@@ -27,15 +27,21 @@ interface ChallengeInterface {
   company: CompanyInterface,
 }
 
-const Challenges: React.FC = () => {
+type DetailParams = {
+  id: string; 
+};
 
-  const [challenges, setChallenges] = useState<ChallengeInterface[]>();
+type DetailProps = RouteComponentProps<DetailParams>;
+
+const Challenge: React.FC<DetailProps> = ({ match }) => {
+
+  const [challenges, setChallenges] = useState<ChallengeInterface>();
 
   useEffect(() => {
-    api.get(`/challenges`)
-    .then((challenges) => {
-      setChallenges(challenges.data)
-     console.log(challenges);
+    api.get(`/challenges/${match.params.id}`)
+    .then((challenge) => {
+      setChallenges(challenge.data)
+     console.log(challenge);
     })
     .catch(err => {})
   }, []);
@@ -46,23 +52,10 @@ const Challenges: React.FC = () => {
         <Title>Vagas</Title>
         <input className="search"  type="text" />
         <ContainerCards>
-        {challenges?.map(challenge => (
-          <Card key={challenge.id}>
-            <div className="title">{challenge.title}</div>
-            <div className="img">
-              <img src={image}/>
-            </div>
-            <div className="description">
-              {challenge.description}
-
-              <Link to={{ pathname:`/desafio/${challenge.id}`}}>Ir Para</Link>
-            </div>
-          </Card>
-        ))}
         </ContainerCards>
       </ContainerVacancies>
     </MainContainer>
   );
 }
 
-export default Challenges;
+export default withRouter(Challenge);
