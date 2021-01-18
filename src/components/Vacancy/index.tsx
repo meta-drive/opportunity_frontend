@@ -15,7 +15,7 @@ interface Vacancy {
 const VacancyCard: React.FC<Vacancy> = (vacancy) => {
   return (
     <Card key={vacancy.id}>
-      <div className="title">{vacancy.occupation.name} - {vacancy.occupation.occupation_area}</div>
+      <div className="title">{vacancy.occupation.name}</div>
       <div className="img">
         <img src={background} alt="Vaga"/>
       </div>

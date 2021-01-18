@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 
-import { MainContainer, ContainerCards, ContainerVacancies, Title } from './styles';
+import { MainContainer } from './styles';
 import { Card } from '../../styles/global';
 import api from '../../services/api';
 
@@ -48,12 +48,7 @@ const Challenge: React.FC<DetailProps> = ({ match }) => {
 
   return (
     <MainContainer>
-      <ContainerVacancies>
-        <Title>Vagas</Title>
-        <input className="search"  type="text" />
-        <ContainerCards>
-        </ContainerCards>
-      </ContainerVacancies>
+      <h1>Pagina de Desafios</h1>
     </MainContainer>
   );
 }

@@ -43,7 +43,7 @@ const Challenges: React.FC = () => {
   return (
     <MainContainer>
       <ContainerVacancies>
-        <Title>Vagas</Title>
+        <Title>Desafios</Title>
         <input className="search"  type="text" />
         <ContainerCards>
         {challenges?.map(challenge => (
@@ -54,8 +54,8 @@ const Challenges: React.FC = () => {
             </div>
             <div className="description">
               {challenge.description}
-
-              <Link to={{ pathname:`/desafio/${challenge.id}`}}>Ir Para</Link>
+              <br/>
+              {/* <Link to={{ pathname:`/desafio/${challenge.id}`}}>Ir Para</Link> */}
             </div>
           </Card>
         ))}
