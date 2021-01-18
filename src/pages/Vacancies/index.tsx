@@ -4,6 +4,8 @@ import { MainContainer, ContainerCards, ContainerVacancies, Title } from './styl
 import VacancyCard from '../../components/Vacancy/index';
 import api from '../../services/api';
 
+import image from '../../images/Background-com-roboCCR.svg';
+
 interface Company {
   id: number,
   company_name: string,
