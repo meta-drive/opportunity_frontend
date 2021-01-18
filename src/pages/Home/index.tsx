@@ -1,9 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { HomeContainer } from './styles';
 import { FaSearch } from 'react-icons/fa';
 
-const Home: React.FC = () => {
+import api from '../../services/api';
+import VacancyCard from '../../components/Vacancy/index';
+
+interface Vacancy {
+  id: number,
+  description: string,
+  occupation: {
+    name: string,
+    occupation_area: string
+  }
+}
+
+const Home: React.FC = () => {const [vacancies, setVacancies] = useState<Vacancy[]>();
+
+  useEffect(() => {
+    api.get(`/vacancies`)
+    .then((vacancies) => {
+      setVacancies(vacancies.data);
+    })
+    .catch(err => {})
+  }, []);
+
   return (
     <HomeContainer>
       <div className="home-content">
@@ -24,7 +45,7 @@ const Home: React.FC = () => {
               <button>Dicas Profissionais</button>
             </div>
             <div className="occupations">
-
+              {vacancies?.slice(0,3).map(vacancy => <VacancyCard {...vacancy} />)}
             </div>
           </div>
       </div>

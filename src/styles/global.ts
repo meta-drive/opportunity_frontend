@@ -70,13 +70,16 @@ export const Form = styled.form`
 
 export const Card = styled.div`
 
-  border: 1px solid #723915;
+  /* border: 1px solid #723915; */
+  border-radius: 7px;
+  box-shadow: 0 0 0.4rem;
   background-color: white;
-  width: 280px;
-  margin: 20px 5px;
+  width: 12rem;
+  margin: 20px 10px;
 
   .title {
     border-bottom: 1px solid #723915;
+    font-weight: bold;
     height: 40px;
     display: flex;
     align-items: center;
@@ -84,12 +87,17 @@ export const Card = styled.div`
   }
 
   .img {
-    height: 200px;
+    height: 10rem;
+    
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
   }
 
   .description {
-    border-top: 1px solid #723915;
-    height: 80px;
     padding: 5px;
+    text-align: center;
   }
 `;

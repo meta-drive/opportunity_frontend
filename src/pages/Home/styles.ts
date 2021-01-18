@@ -66,7 +66,7 @@ export const HomeContainer = styled.div`
 
     .occupation-container {
       display: flex;
-      align-items: stretch;
+      align-items: flex-start;
       margin: 2rem 0;
 
       .botoes {
@@ -101,6 +101,8 @@ export const HomeContainer = styled.div`
         background-color: #ffffff;
         flex: 1;
         box-shadow: 0 0 0.4rem;
+        display: flex;
+        justify-content: space-around;
       }
     }
   }
