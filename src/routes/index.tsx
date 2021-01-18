@@ -4,6 +4,7 @@ import Route from './Route';
 
 import Landing from '../pages/Landing/index';
 import Profile from '../pages/Profile/index';
+import Home from '../pages/Home/index';
 import Vacancies from '../pages/Vacancies/index';
 import Challenges from '../pages/Challenges/index';
 
@@ -20,6 +21,7 @@ const Routes: React.FC = () => (
       <Route path="/login"    component={Login} />
       <Route path="/cadastro" component={CreateUser} />
       <Route path="/perfil"   component={Profile} isPrivate />
+      <Route path="/home"     component={Home} isPrivate />
       <Route path="/vagas"   component={Vacancies} isPrivate />
       <Route path="/desafios" component={Challenges} isPrivate />
     </Switch>

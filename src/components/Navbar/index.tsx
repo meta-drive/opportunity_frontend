@@ -20,13 +20,17 @@ const Navbar: React.FC = () => {
   return (
     <TopNavbar>
       <div className={menuOpen ? 'open' : ''}>
-        <NavLink to="/" exact activeClassName="active">Início</NavLink>
-        <NavLink to="/desafios">Desafios</NavLink>
-        <NavLink to="/vagas">Vagas</NavLink>
-
-        {!!user && (
-          <NavLink to="/perfil">Perfil</NavLink>
+        {!!user ? (
+          <>
+            <NavLink to="/home">Início</NavLink>
+            <NavLink to="/perfil">Perfil</NavLink>
+          </>
+        ) : (
+          <NavLink to="/">Início</NavLink>
         )}
+
+        <NavLink to="/desafios" activeClassName="active">Desafios</NavLink>
+        <NavLink to="/vagas">Vagas</NavLink>
 
         {!!user ? (
           <Link to="" onClick={handleLogout}>Sair</Link>
